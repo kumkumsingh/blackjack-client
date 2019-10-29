@@ -16,26 +16,26 @@ export const logIn = (email, password) => (dispatch, getState) => {
       .post(`${baseUrl}/login`)
       .send({ email, password })
       .then(response => {
+        
         dispatch(loggedInSuccess(response.body));
-        // console.log("what do we get in login response", response.body);
+        
       })
       .catch(error => console.log(error));
   } else {
-    // console.log("result in action")
+   // console.log("result in action")
     return "Please provide correct details";
   }
- };
-
+};
 
 export const signUp = (data) => (dispatch) => {
 
- if(data.username && data.email && data.password){
-
-    request
-      .post(`${baseUrl}/signup`)
-      .send(data)
-      .catch(error => console.log(error));
-} else {
-  return "Please provide details"
-}
-};
+  if(data.username && data.email && data.password){
+ 
+   request
+     .post(`${baseUrl}/signup`)
+     .send(data)
+     .catch(error => console.log(error));
+ } else {
+   return "Please provide details"
+ }
+ };
