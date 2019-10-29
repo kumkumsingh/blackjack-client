@@ -9,15 +9,16 @@ class LogInFormContainer extends Component {
     email: "",
     password: ""
   };
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.logIn(this.state.email, this.state.password);
-    //this.props.logIn('kumkum@gmail.com','hello')
-  };
+
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
+  };
+  onSubmit = event => {
+    event.preventDefault();
+    this.props.logIn(this.state.email, this.state.password);
+    //this.props.logIn('kumkum@gmail.com','hello')
   };
   render() {
     return this.props.loggedIn ? (
@@ -38,7 +39,4 @@ const mapStatesToProps = state => {
     loggedIn: state.user
   };
 };
-export default connect(
-  mapStatesToProps,
-  { logIn }
-)(LogInFormContainer);
+export default connect(mapStatesToProps,{ logIn })(LogInFormContainer);
