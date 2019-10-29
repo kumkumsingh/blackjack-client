@@ -7,7 +7,9 @@ import { Redirect } from "react-router-dom";
 class LogInFormContainer extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    message :""
+  
   };
 
   onChange = event => {
@@ -17,14 +19,27 @@ class LogInFormContainer extends Component {
   };
   onSubmit = event => {
     event.preventDefault();
-    this.props.logIn(this.state.email, this.state.password);
+    
+    const result = this.props.logIn(this.state.email, this.state.password);
     //this.props.logIn('kumkum@gmail.com','hello')
+    if(result){
+      this.setState({message:result})
+    }
+    else {
+      this.setState({
+        email: "",
+        password: "",
+        message :""
+      
+      });
+    }
   };
   render() {
     return this.props.loggedIn ? (
       <Redirect to="/"/>
     ) : (
       <div>
+        <p>{this.state.message}</p>
         <LogInForm
           value={this.state}
           onSubmit={this.onSubmit}
