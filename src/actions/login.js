@@ -27,7 +27,6 @@ export const logIn = (email, password) => (dispatch, getState) => {
  };
 
 
-
 export const signUp = (data) => (dispatch) => {
 
  if(data.username && data.email && data.password){
