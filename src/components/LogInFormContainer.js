@@ -22,7 +22,7 @@ class LogInFormContainer extends Component {
   };
   render() {
     return this.props.loggedIn ? (
-      <Redirect to="/Home" />
+      <Redirect to="/"/>
     ) : (
       <div>
         <LogInForm
