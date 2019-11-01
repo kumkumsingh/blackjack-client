@@ -18,6 +18,7 @@ class LogInFormContainer extends Component {
  onSubmit = event => {
    event.preventDefault();
    const result = this.props.logIn(this.state.email, this.state.password);
+
    //this.props.logIn('kumkum@gmail.com','hello')
    if(result){
      this.setState({message:result})
@@ -32,10 +33,14 @@ class LogInFormContainer extends Component {
  };
  render() {
    return this.props.loggedIn ? (
-     <Redirect to="/lobby"/>
+     <React.Fragment>
+       <Redirect to="/lobby"/>
+     <p>{this.props.loggedIn.message}</p>
+     </React.Fragment>
+     
    ) : (
      <div>
-       <p>{this.state.message}</p>
+       
        <LogInForm
          value={this.state}
          onSubmit={this.onSubmit}
