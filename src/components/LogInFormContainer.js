@@ -32,7 +32,7 @@ class LogInFormContainer extends Component {
  };
  render() {
    return this.props.loggedIn ? (
-     <Redirect to="/"/>
+     <Redirect to="/lobby"/>
    ) : (
      <div>
        <p>{this.state.message}</p>
