@@ -23,7 +23,7 @@ export const logIn = (email, password) => (dispatch, getState) => {
         dispatch(loggedInSuccess(response.body));
       })
       .catch(error => {
-        console.log('response message',error.response.body.message)
+        console.log("response message", error.response.body.message);
         dispatch(getMessage(error.response.body.message));
       });
   } else {
