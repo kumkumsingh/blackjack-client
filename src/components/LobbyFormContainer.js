@@ -68,13 +68,6 @@ class LobbyFormContainer extends Component {
     const indexOfLastRoom = currentPage * roomsPerPage;
     const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
     const currentRooms = rooms.slice(indexOfFirstRoom, indexOfLastRoom);
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(rooms.length / roomsPerPage); i++) {
-      pageNumbers.push(i);
-    }
-    console.log("pageNumbers", pageNumbers);
-    // if(!this.state.rooms) return 'Loading'
-    console.log("rooms in state", this.state.rooms);
     return (
       <React.Fragment>
         <div>
