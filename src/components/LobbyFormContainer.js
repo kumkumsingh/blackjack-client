@@ -68,12 +68,6 @@ class LobbyFormContainer extends Component {
     const indexOfLastRoom = currentPage * roomsPerPage;
     const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
     const currentRooms = rooms.slice(indexOfFirstRoom, indexOfLastRoom)
-    console.log('curentrooms',currentRooms)
-   
-    console.log('roomsPerPage',roomsPerPage)
-    
-    //console.log('renderrooms',renderRooms)
-      // Logic for displaying page numbers
       const pageNumbers = [];
       for (let i = 1; i <= Math.ceil(rooms.length / roomsPerPage); i++) {
         pageNumbers.push(i);
@@ -95,15 +89,6 @@ class LobbyFormContainer extends Component {
     return (
         <React.Fragment>
       <div>
-        {/* container of the lobby render db lobby */}
-        
-        {/* {this.state.rooms && this.state.rooms.map((gameRoom, index) => {
-          return (
-            <li key={index}>
-              <Link to={`/game/${gameRoom.id}`}>{gameRoom.roomName}</Link>
-            </li>
-          );
-        })} */}
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
@@ -118,20 +103,7 @@ class LobbyFormContainer extends Component {
          {  currentRooms.map((room, index) => {
             return <li key={index}><Link to={`/game/${room.id}`}>{room.roomName}</Link></li>
           })}
-           {/* {renderRooms.map((room,index) => {
-
-               return (
-                   <ul key={index}>{room.props.roomName}</ul>
-               )
-           } )} */}
-           {renderPageNumbers}
-         {/* <ul>
-            {renderRooms}
-          </ul>
-          <ul id="page-numbers">
-            {renderPageNumbers}
-          </ul> */}
-        
+           {renderPageNumbers} 
       </div>
       </React.Fragment>
     );
