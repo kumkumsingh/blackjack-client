@@ -9,7 +9,7 @@ export default function LogInForm(props) {
                 <input type='text' name='email' onChange={props.onChange} value ={props.value.email}></input>
                 <label>Password:</label>
                 <input type='password' name='password' onChange={props.onChange} value ={props.value.password} ></input>
-                <input type='submit'/>
+                <input type='submit' class="btn btn-info" />
             </form>
         </div>
     )

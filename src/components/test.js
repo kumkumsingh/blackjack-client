@@ -52,7 +52,7 @@ class LobbyFormContainer extends Component {
       roomName: ""
     });
   };
-
+  // paginate = ()=> seCurrentPage()
   handleClick = event => {
     this.setState({
       currentPage: Number(event.target.id)
@@ -71,6 +71,7 @@ class LobbyFormContainer extends Component {
       pageNumbers.push(i);
     }
     console.log("pageNumbers", pageNumbers);
+
     // if(!this.state.rooms) return 'Loading'
     console.log("rooms in state", this.state.rooms);
     return (
@@ -83,31 +84,36 @@ class LobbyFormContainer extends Component {
               value={this.state.roomName}
               onChange={this.onChange}
             ></input>
-            <button type="submit" class="btn btn-primary">Add Room</button>
+            <button type="submit">Add Room</button>
           </form>
-
-          <p>List of page numbers</p>
           {currentRooms.map((room, index) => {
             return (
-              <li key={index} class="list-group-item">
+              <ul key={index}>
                 <Link to={`/game/${room.id}`}>{room.roomName}</Link>
-              </li>
+              </ul>
             );
           })}
           <p>List of page numbers</p>
-          <div className="container">
+          {pageNumbers.map(number => {
+            return (
+              <nav className="pagination">
+                <ul key={number} onClick={this.handleClick}>
+                  {number}
+                </ul>
+              </nav>
+            );
+          })}
+          {/* <div className="container">
             <ul className="pagination">
-              {pageNumbers.map(number => {
-                return (
-                  <li key={number} id={number} onClick={this.handleClick}>
-                    <a id={number} onClick={this.handleClick}>
-                      {number}
-                    </a>
-                  </li>
-                );
-              })}
+                {pageNumbers.map(number => {
+                    return <li key={number} id={number} onClick={this.handleClick}>
+                       <a >{number}</a>
+                    </li>
+                })
+                }
             </ul>
-          </div>
+          </div> */}
+          {/* <nav>{renderPageNumbers}</nav> */}
         </div>
       </React.Fragment>
     );
