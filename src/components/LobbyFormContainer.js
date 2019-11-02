@@ -3,6 +3,8 @@ import * as request from "superagent";
 import { Link } from "react-router-dom";
 import { logIn } from "../actions/login";
 import { connect } from "react-redux";
+import Pagination from './Pagination'
+import pagination from "./Pagination";
 
 class LobbyFormContainer extends Component {
   state = {
@@ -53,12 +55,12 @@ class LobbyFormContainer extends Component {
     });
   };
 
-  handleClick = event => {
+  onClick = event => {
     this.setState({
       currentPage: Number(event.target.id)
     });
   };
-
+  //paginate = (pageNumber) =>setCurrentPage(pageNumber)
   render() {
     console.log("state", this.state);
     const { rooms, currentPage, roomsPerPage } = this.state;
@@ -94,22 +96,11 @@ class LobbyFormContainer extends Component {
               </li>
             );
           })}
-          <p>List of page numbers</p>
-          <div className="container">
-            <ul className="pagination">
-              {pageNumbers.map(number => {
-                return (
-                  <li key={number} id={number} onClick={this.handleClick}>
-                    <a id={number} onClick={this.handleClick}>
-                      {number}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+         
         </div>
+        <Pagination roomsPerPage={roomsPerPage} totalRooms={rooms.length} onClick={this.onClick}/>
       </React.Fragment>
+   
     );
   }
 }
