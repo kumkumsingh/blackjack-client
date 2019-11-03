@@ -35,7 +35,7 @@ class LogInFormContainer extends Component {
    return this.props.loggedIn ? (
      <React.Fragment>
        <Redirect to="/lobby"/>
-     <p>{this.props.loggedIn.message}</p>
+       <p>{this.props.loggedIn.message}</p>
      </React.Fragment>
      
    ) : (

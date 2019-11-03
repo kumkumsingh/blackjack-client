@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
+        <div className="container mt-4">
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component ={LogInFormContainer}/>
           <Route path="/signup" exact component ={SignUpFormContainer}/>
